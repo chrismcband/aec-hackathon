@@ -19,57 +19,55 @@
       <div class="design-choices-tabs">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Choice 1</a></li>
-          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Choice 2</a></li>
-          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Choice 3</a></li>
-          <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Choice 4</a></li>
+          <li role="presentation" class="active"><a href="#plan" role="tab" data-toggle="tab">Plan</a></li>
+          <li role="presentation"><a href="#roof" aria-controls="profile" role="tab" data-toggle="tab">Roof</a></li>
+          <li role="presentation"><a href="#window" aria-controls="messages" role="tab" data-toggle="tab">Window</a></li>
         </ul>
       </div>
 
       <div class="panel panel-default col-md-3">
-        <div class="panel-body">
-          <form>
-            <div class="option-pane">
-              <div class="form-group">
-                <label>
-                  <input type="radio" name="design" value="option1"/> Option 1
-                </label>
-              </div>
-              <div class="form-group">
-                <label>
-                  <input type="radio" name="design" value="option2"/> Option 2
-                </label>
-              </div>
-              <div class="form-group">
-                <label>
-                  <input type="radio" name="design" value="option3"/> Option 3
-                </label>
-              </div>
-            </div>
+        <div id="options-panel" class="panel-body">
 
-          </form>
         </div>
       </div>
       <div class="panel panel-default col-md-9">
         <div class="panel-body">
           <div id="viewer" class="viewer">
-
+              Viewer goes here
+          </div>
+          <div id="choice-info" class="choice-info">
           </div>
         </div>
       </div>
     </div>
 
-
-    <script type="x-handlebars-template" id="design-tabs-template">
-        {{#each}}
-            <li role="presentation"><a href="#" aria-controls="{{type}}" role="tab" data-toggle="tab">{{type}}</a></li>
+    <script type="x-handlebars-template" id="options-template">
+        {{#each this}}
+            <div>
+                <label>
+                    <input type="radio" name="design" value="{{name}}"/> {{name}}
+                </label>
+            </div>
         {{/each}}
     </script>
 
-    <script type="x-handlebars-template" id="option-template">
-        <label>
-            <input type="radio" name="design" value="{{name}}"/> {{name}}
-        </label>
+    <script type="x-handlebars-template" id="choice-info-template">
+        <h2>Choice information</h2>
+        <table class="table">
+            <tr>
+                <th>Name</th><td>{{name}}</td>
+
+            </tr>
+            <tr>
+                <th>Description</th><td>{{description}}</td>
+            </tr>
+            <tr>
+                <th>Cost</th><td>{{cost}}</td>
+            </tr>
+            <tr>
+                <th>Carbon footprint</th><td>Some value</td>
+            </tr>
+        </table>
     </script>
   </body>
 </html>
